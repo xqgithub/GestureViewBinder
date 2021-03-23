@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/groupView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#333333"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context="com.jarvislau.destureviewbinderdemo.MainActivity">
 
-    <ImageView
-        android:id="@+id/targetView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/photo"
-        tools:ignore="ContentDescription" />
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/targetView"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_test"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/photo"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:text="不允许点击"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -2,15 +2,10 @@ package com.jarvislau.destureviewbinder;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by JarvisLau on 2018/5/30.
@@ -53,10 +48,12 @@ public class GestureViewBinder {
                     isScaleEnd = event.getAction() == MotionEvent.ACTION_UP;
                     if (isScaleEnd) {
                         scaleGestureListener.onActionUp();
+                        onScaleListener.isScaleEnd(isScaleEnd);
                     }
                     scrollGestureListener.setScale(scaleGestureListener.getScale());
                     if (onScaleListener != null) {
                         onScaleListener.onScale(scaleGestureListener.getScale());
+                        onScaleListener.isScaleEnd(isScaleEnd);
                     }
                     return scaleGestureBinder.onTouchEvent(event);
                 }
@@ -108,5 +105,7 @@ public class GestureViewBinder {
 
     public interface OnScaleListener {
         void onScale(float scale);
+
+        void isScaleEnd(boolean isScaleEnd);
     }
 }
